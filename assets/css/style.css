@@ -533,7 +533,7 @@ a.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); colo
 }
 .bar-fill.cyan { background: var(--cyan-600); }
 
-.reveal.in .bar-fill { width: var(--w); }
+.chart.in .bar-fill { width: var(--w); }
 
 .bar-value {
   font-weight: 700;
@@ -550,8 +550,8 @@ a.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); colo
 .donut-arc { fill: none; stroke-width: 13; transition: stroke-dasharray 1s var(--ease); }
 .arc-sa { stroke: var(--blue-800); stroke-dasharray: 0 251.33; }
 .arc-sia { stroke: var(--cyan-600); stroke-dasharray: 0 251.33; stroke-dashoffset: -148.1; transition-delay: 0.45s; }
-.reveal.in .arc-sa { stroke-dasharray: 148.1 103.23; }
-.reveal.in .arc-sia { stroke-dasharray: 103.23 148.1; }
+.chart.in .arc-sa { stroke-dasharray: 148.1 103.23; }
+.chart.in .arc-sia { stroke-dasharray: 103.23 148.1; }
 
 .legend { display: flex; flex-direction: column; gap: 9px; font-size: 14px; color: var(--slate-600); }
 .legend .swatch {
@@ -583,7 +583,7 @@ a.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); colo
 .w-blue { background: var(--blue-800); }
 .w-cyan { background: var(--cyan-600); }
 .w-lime { background: var(--lime-600); }
-.commit.in .waffle span, .reveal.in .waffle span { opacity: 1; transform: scale(1); }
+.chart.in .waffle span { opacity: 1; transform: scale(1); }
 
 .waffle-legend { display: flex; flex-direction: column; gap: 5px; font-size: 13px; color: var(--slate-600); }
 .waffle-legend .swatch { width: 9px; height: 9px; border-radius: 50%; display: inline-block; margin-right: 7px; }
@@ -619,7 +619,7 @@ a.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); colo
   transform: scale(0.3);
   transition: opacity 0.3s ease, transform 0.3s var(--ease);
 }
-.reveal.in .matrix-dot { opacity: 1; transform: scale(1); }
+.chart.in .matrix-dot { opacity: 1; transform: scale(1); }
 
 /* ---------- Reveal on scroll ---------- */
 

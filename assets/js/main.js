@@ -36,8 +36,8 @@
     requestAnimationFrame(step);
   }
 
-  /* Reveal on scroll + innesco count-up */
-  var observed = document.querySelectorAll('.reveal, .commit');
+  /* Reveal on scroll + innesco count-up e grafici */
+  var observed = document.querySelectorAll('.reveal, .commit, .chart');
   if ('IntersectionObserver' in window && !reduceMotion) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
