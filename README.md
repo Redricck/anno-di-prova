@@ -18,8 +18,8 @@ python -m http.server 8741
 
 ## Versione online
 
-Pubblicazione prevista su GitHub Pages (repo `anno-di-prova`). Una volta attivata, l'URL sarà
-`https://<username>.github.io/anno-di-prova/` — da aggiornare qui e da lasciare al Comitato.
+Il sito è pubblicato su GitHub Pages: **https://redricck.github.io/anno-di-prova/**
+(repo: https://github.com/Redricck/anno-di-prova — ogni `git push` su `main` aggiorna il sito in 1-2 minuti).
 
 ## Struttura
 
