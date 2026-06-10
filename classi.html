@@ -39,17 +39,55 @@
 
   <section class="section container" aria-label="Numeri delle classi">
     <div class="card-grid">
-      <div class="stat-card reveal">
-        <div class="stat-value"><span data-count="3">0</span></div>
-        <div class="stat-label">classi seconde SA — 2B · 2C · 2D</div>
+      <div class="card reveal">
+        <span class="card-kicker blue">studenti per classe</span>
+        <h3>Le classi in numeri</h3>
+        <div style="margin-top: 10px;">
+          <div class="bar-row">
+            <span class="bar-label">2B</span>
+            <div class="bar-track"><div class="bar-fill" style="--w: 80%;"></div></div>
+            <span class="bar-value">16</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">2C</span>
+            <div class="bar-track"><div class="bar-fill" style="--w: 100%; transition-delay: 0.1s;"></div></div>
+            <span class="bar-value">20</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">2D</span>
+            <div class="bar-track"><div class="bar-fill" style="--w: 100%; transition-delay: 0.2s;"></div></div>
+            <span class="bar-value">20</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">3P</span>
+            <div class="bar-track"><div class="bar-fill cyan" style="--w: 100%; transition-delay: 0.3s;"></div></div>
+            <span class="bar-value">20</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">4S</span>
+            <div class="bar-track"><div class="bar-fill cyan" style="--w: 95%; transition-delay: 0.4s;"></div></div>
+            <span class="bar-value">19</span>
+          </div>
+        </div>
       </div>
-      <div class="stat-card alt reveal">
-        <div class="stat-value"><span data-count="56">0</span>+</div>
-        <div class="stat-label">studenti nel biennio Scienze Applicate</div>
-      </div>
-      <div class="stat-card reveal">
-        <div class="stat-value"><span data-count="39">0</span></div>
-        <div class="stat-label">studenti nel triennio SIA — 3P · 4S</div>
+      <div class="card reveal">
+        <span class="card-kicker cyan">per indirizzo</span>
+        <h3>Due indirizzi, 95 studenti</h3>
+        <div class="donut-wrap" style="margin-top: 10px;">
+          <svg width="128" height="128" viewBox="0 0 100 100" role="img" aria-label="Ripartizione studenti: 56 in Scienze Applicate, 39 in Sistemi Informativi Aziendali">
+            <g transform="rotate(-90 50 50)">
+              <circle cx="50" cy="50" r="40" fill="none" stroke="#E8EDF7" stroke-width="13"/>
+              <circle class="donut-arc arc-sa" cx="50" cy="50" r="40"/>
+              <circle class="donut-arc arc-sia" cx="50" cy="50" r="40"/>
+            </g>
+            <text x="50" y="48" text-anchor="middle" font-family="Outfit" font-weight="800" font-size="20" fill="#172554">95</text>
+            <text x="50" y="62" text-anchor="middle" font-family="Outfit" font-size="8.5" fill="#64748B">studenti</text>
+          </svg>
+          <div class="legend">
+            <span><span class="swatch" style="background: var(--blue-800);"></span>Scienze Applicate — 56</span>
+            <span><span class="swatch" style="background: var(--cyan-600);"></span>Sistemi Informativi Aziendali — 39</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>

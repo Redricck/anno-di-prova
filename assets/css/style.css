@@ -503,6 +503,124 @@ a.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); colo
 .code-card .com { color: #64748B; }
 .code-card .num { color: #FCA5A5; }
 
+/* ---------- Grafici animati allo scroll ---------- */
+
+/* Barre orizzontali */
+.bar-row { display: flex; align-items: center; gap: 12px; }
+.bar-row + .bar-row { margin-top: 11px; }
+
+.bar-label {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--slate-600);
+  width: 36px;
+}
+
+.bar-track {
+  flex: 1;
+  height: 16px;
+  background: #E8EDF7;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  width: 0;
+  border-radius: var(--radius-pill);
+  background: var(--blue-800);
+  transition: width 1s var(--ease);
+}
+.bar-fill.cyan { background: var(--cyan-600); }
+
+.reveal.in .bar-fill { width: var(--w); }
+
+.bar-value {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--navy-900);
+  width: 26px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Ciambella (donut) — circonferenza r=40 → 251.33 */
+.donut-wrap { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+
+.donut-arc { fill: none; stroke-width: 13; transition: stroke-dasharray 1s var(--ease); }
+.arc-sa { stroke: var(--blue-800); stroke-dasharray: 0 251.33; }
+.arc-sia { stroke: var(--cyan-600); stroke-dasharray: 0 251.33; stroke-dashoffset: -148.1; transition-delay: 0.45s; }
+.reveal.in .arc-sa { stroke-dasharray: 148.1 103.23; }
+.reveal.in .arc-sia { stroke-dasharray: 103.23 148.1; }
+
+.legend { display: flex; flex-direction: column; gap: 9px; font-size: 14px; color: var(--slate-600); }
+.legend .swatch {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border-radius: 3px;
+  margin-right: 8px;
+  vertical-align: -1px;
+}
+
+/* Waffle (un punto = un esercizio) */
+.waffle-wrap { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 16px; }
+
+.waffle {
+  display: grid;
+  grid-template-columns: repeat(9, 13px);
+  gap: 6px;
+}
+
+.waffle span {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0.3);
+  transition: opacity 0.3s ease, transform 0.3s var(--ease);
+}
+.w-blue { background: var(--blue-800); }
+.w-cyan { background: var(--cyan-600); }
+.w-lime { background: var(--lime-600); }
+.commit.in .waffle span, .reveal.in .waffle span { opacity: 1; transform: scale(1); }
+
+.waffle-legend { display: flex; flex-direction: column; gap: 5px; font-size: 13px; color: var(--slate-600); }
+.waffle-legend .swatch { width: 9px; height: 9px; border-radius: 50%; display: inline-block; margin-right: 7px; }
+
+/* Matrice standard × esperienze */
+.matrix {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr));
+  gap: 12px 8px;
+  align-items: center;
+}
+
+.matrix-head {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--navy-900);
+  text-align: center;
+}
+
+.matrix-label {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--slate-600);
+}
+
+.matrix-cell { display: flex; justify-content: center; }
+
+.matrix-dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0.3);
+  transition: opacity 0.3s ease, transform 0.3s var(--ease);
+}
+.reveal.in .matrix-dot { opacity: 1; transform: scale(1); }
+
 /* ---------- Reveal on scroll ---------- */
 
 .reveal {
@@ -603,6 +721,11 @@ a.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); colo
   .reveal { opacity: 1; transform: none; transition: none; }
   .stat-card, .commit-card, .card { transition: none; }
   .commit-node::after { transition: none; }
+  .bar-fill { transition: none; width: var(--w); }
+  .donut-arc { transition: none; }
+  .arc-sa { stroke-dasharray: 148.1 103.23; }
+  .arc-sia { stroke-dasharray: 103.23 148.1; }
+  .waffle span, .matrix-dot { transition: none; opacity: 1; transform: scale(1); }
 }
 
 /* ---------- Stampa ---------- */
@@ -610,6 +733,12 @@ a.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); colo
 @media print {
   body { background: #fff; }
   .nav, .footer, .nav-toggle { display: none; }
+  .reveal, .stagger { opacity: 1; transform: none; }
+  .bar-fill { width: var(--w); }
+  .arc-sa { stroke-dasharray: 148.1 103.23; }
+  .arc-sia { stroke-dasharray: 103.23 148.1; }
+  .waffle span, .matrix-dot { opacity: 1; transform: scale(1); }
+  .commit-node::after { transform: scale(1); }
   .hero-card, .outro { background: #fff; color: #0F172A; border: 1px solid #CBD5E1; box-shadow: none; }
   .hero-card h1, .outro h2 { color: #0F172A; }
   .hero-sub, .hero-tagline, .outro p { color: #475569; }
