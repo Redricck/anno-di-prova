@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Strumenti e automazione — Riccardo Callà</title>
+<meta name="description" content="Gli strumenti digitali costruiti durante l'anno: script Python per generare verifiche e valutazioni, flussi Google Classroom, Veyon e il database didattico.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231E40AF'/%3E%3Ctext x='32' y='42' font-family='sans-serif' font-size='26' font-weight='800' fill='%23FFFFFF' text-anchor='middle'%3ERC%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#contenuto">Salta al contenuto</a>
+
+<nav class="nav" aria-label="Navigazione principale">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">RC</span>
+      <span class="brand-name">riccardo<span class="dot">.</span>callà</span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Apri il menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+    </button>
+    <ul class="nav-links" id="menu">
+      <li><a href="index.html#percorso">Percorso</a></li>
+      <li><a href="classi.html">Didattica</a></li>
+      <li><a href="ed_civica.html">Ed. civica</a></li>
+      <li><a href="innovazione.html" aria-current="page">Innovazione</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="contenuto">
+
+  <header class="page-header container">
+    <p class="page-kicker stagger s1">./innovazione</p>
+    <h1 class="stagger s2">Strumenti e automazione</h1>
+    <p class="lead stagger s3">Quando la materia che insegni è anche quella con cui lavori: gli strumenti software costruiti durante l'anno per generare verifiche differenziate, correggere più in fretta e gestire il laboratorio.</p>
+  </header>
+
+  <section class="section container" id="script">
+    <div class="section-head reveal">
+      <p class="section-kicker">$ ls ./utils</p>
+      <h2>Script Python per la didattica</h2>
+      <p>Una piccola toolchain in Python (con <span class="mono">python-docx</span>) che genera i documenti delle prove: testi dei compiti nelle tre file A/B/C, simulazioni, recuperi e fogli di valutazione — con impaginazione coerente e zero copia-incolla manuale.</p>
+    </div>
+    <div class="code-card reveal">
+      <div class="code-bar"><span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>genera_compito.py — generazione delle tre file</div>
+      <pre><span class="kw">for</span> fila <span class="kw">in</span> [<span class="str">"A"</span>, <span class="str">"B"</span>, <span class="str">"C"</span>]:
+    doc = crea_documento(intestazione, regolamento)
+    <span class="kw">for</span> n, esercizio <span class="kw">in</span> enumerate(esercizi[fila], <span class="num">1</span>):
+        aggiungi_esercizio(doc, n, esercizio, punti[n])
+    doc.save(<span class="kw">f</span><span class="str">"Compito_Fila_{fila}.docx"</span>)  <span class="com"># + versione PDP allineata</span></pre>
+    </div>
+    <div class="card-grid" style="margin-top:16px;">
+      <div class="card reveal">
+        <span class="card-kicker blue">generazione</span>
+        <h3>Verifiche in tre file</h3>
+        <p>Compiti C++ e SQL generati da script: stessa struttura e difficoltà, esercizi diversi per fila. Anche simulazioni, prove di recupero e versioni per studenti assenti.</p>
+      </div>
+      <div class="card reveal">
+        <span class="card-kicker cyan">correzione</span>
+        <h3>Valutazioni semi-automatiche</h3>
+        <p>Esiti di auto-correzione per studente salvati in JSON e trasformati in fogli di valutazione Excel e report Word: criteri uniformi e tempi di correzione ridotti.</p>
+      </div>
+      <div class="card reveal">
+        <span class="card-kicker lime">riuso</span>
+        <h3>Un pattern, tante prove</h3>
+        <p>Ogni cartella di verifica ha la sua sottocartella <span class="mono">utils/</span> con lo script generatore: il pattern si è replicato su tutte le classi e le materie del programma.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container" id="lab">
+    <div class="section-head reveal">
+      <p class="section-kicker">$ systemctl status laboratorio</p>
+      <h2>Il laboratorio come ambiente gestito</h2>
+    </div>
+    <div class="card-grid">
+      <div class="card reveal">
+        <span class="card-kicker blue">consegne</span>
+        <h3>Google Classroom</h3>
+        <p>Tutte le prove pratiche passano da Classroom: naming standard, scadenza automatica alla fine dell'ora, tracciabilità completa delle consegne.</p>
+      </div>
+      <div class="card reveal">
+        <span class="card-kicker cyan">supervisione</span>
+        <h3>Veyon</h3>
+        <p>Monitoraggio delle postazioni durante le prove: trasparenza per gli studenti (il regolamento lo dichiara) e serenità nella gestione dell'aula.</p>
+      </div>
+      <div class="card reveal">
+        <span class="card-kicker lime">dati</span>
+        <h3>"Biblioteca di Quartiere"</h3>
+        <p>Il database didattico costruito per il percorso SQL della 4S: sei tabelle collegate (autori, libri, lettori, eventi, presentazioni, prestiti) su LibreOffice Base/HSQLDB, distribuito alle classi con le esercitazioni.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container" id="db">
+    <div class="section-head reveal">
+      <p class="section-kicker">$ cat schema.sql</p>
+      <h2>Lo schema del database didattico</h2>
+    </div>
+    <div class="code-card reveal">
+      <div class="code-bar"><span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>Biblioteca di Quartiere — schema logico</div>
+      <pre><span class="str">Autori</span>        (id_autore, nome, cognome, nazionalità)
+<span class="str">Libri</span>         (id_libro, titolo, anno_pubblicazione, genere)
+<span class="str">Lettori</span>       (codice_fiscale, nome, cognome, indirizzo)
+<span class="str">Eventi</span>        (id_evento, data_evento, orario_evento, sala, <span class="kw">id_autore→Autori</span>)
+<span class="str">Presentazioni</span> (<span class="kw">id_evento→Eventi</span>, <span class="kw">id_libro→Libri</span>, tema)
+<span class="str">Prestiti</span>      (<span class="kw">codice_fiscale→Lettori</span>, <span class="kw">id_libro→Libri</span>, data_inizio, data_restituzione)
+<span class="com">-- data_restituzione NULL = prestito ancora aperto</span></pre>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span>Riccardo Callà — Docente di Informatica (A041) · IIS Curie-Vittorini</span>
+    <span class="mono">v1.0.0 · a.s. 2025/2026</span>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
