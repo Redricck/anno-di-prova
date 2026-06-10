@@ -69,7 +69,7 @@ anno_di_prova/
 - Collegamento col laboratorio formativo IA: limiti, bias, responsabilità.
 
 ### innovazione.html — "Strumenti e automazione"
-- Script Python (python-docx) per generare verifiche/valutazioni, auto-correzione con esiti JSON.
+- Script Python (python-docx) per generare verifiche differenziate e griglie di valutazione.
 - Flussi Google Classroom, supervisione Veyon, database HSQLDB.
 - Frammenti di codice reali (C++/SQL/Python) come elementi grafici.
 
